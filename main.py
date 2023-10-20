@@ -90,7 +90,7 @@ try:
             orp = modbus_read.read_orp()
         print("orp"+str(orp))
         #write file 
-        heatpump == False
+        heatpump = False
         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
             heatpump = modbus_read.read_heatpump()
 
