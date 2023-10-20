@@ -24,7 +24,7 @@ sys.path.append('/home/pi/hottub_ma/setting/')
 from path_url import Path_url
 sys.path.append('/home/pi/hottub_ma/heater/')
 from main_heater import Main_Heater
-from main_pump import main_pump
+from main_heatpump import Main_HeatPump
 
 
 modbus_read = Modbus_read()
@@ -33,7 +33,7 @@ besgo = Main_Besgo()
 close_all  = Close_All()
 volt = Main_volt_tag()
 heater  = Main_Heater()
-main_pump = main_pump()
+main_pump = Main_HeatPump()
 plc_mod = Modbus()
 write_file = Write_file()
 
