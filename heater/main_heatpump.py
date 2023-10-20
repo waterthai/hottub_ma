@@ -20,7 +20,7 @@ modbus_relay  = Modbus_relay()
 plc_mod = Modbus()
 
 
-class Main_Pump():
+class Main_HeatPump():
 
     def start_heatpump(self,  temperature, plc, relay_8,status_heatpump):
         named_tuple = time.localtime() # get struct_time
