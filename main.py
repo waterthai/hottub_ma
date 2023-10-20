@@ -24,7 +24,7 @@ sys.path.append('/home/pi/hottub_ma/setting/')
 from path_url import Path_url
 sys.path.append('/home/pi/hottub_ma/heater/')
 from main_heater import Main_Heater
-from main_heatpump import Main_HeatPump
+from main_pump import main_pump
 
 
 modbus_read = Modbus_read()
@@ -33,7 +33,7 @@ besgo = Main_Besgo()
 close_all  = Close_All()
 volt = Main_volt_tag()
 heater  = Main_Heater()
-main_heatpump = Main_HeatPump()
+main_pump = main_pump()
 plc_mod = Modbus()
 write_file = Write_file()
 
@@ -123,7 +123,7 @@ try:
                         besgo.start_besgo(current_time, relay_8, plc, setting_mode, setting_selection)
                         if relay_8[4] == True:
                             if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                             else:
                                 heater.start_heater(temperature, plc, relay_8)
                         if status_bes == "False":
@@ -138,7 +138,7 @@ try:
                                 main_ph.start_ph()
 
                             if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                             else:
                                 heater.start_heater(temperature, plc, relay_8)
                             #นับเวลาตรวจสอบ pressure ไม่มีแรงดัน
@@ -173,7 +173,7 @@ try:
                     besgo.start_besgo(current_time, relay_8, plc, setting_mode, setting_selection)
                     if relay_8[4] == True:
                         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                         else:
                             heater.start_heater(temperature, plc, relay_8)
 
@@ -189,7 +189,7 @@ try:
                             main_ph.start_ph()
 
                         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                         else:
                             heater.start_heater(temperature, plc, relay_8)
                         
@@ -211,7 +211,7 @@ try:
                     besgo.start_besgo(current_time, relay_8, plc, setting_mode, setting_selection)
                     if relay_8[4] == True:
                         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                         else:
                             heater.start_heater(temperature, plc, relay_8)
                     
@@ -225,9 +225,8 @@ try:
                         main_ph = Main_PH(current_time, ph, orp, relay_8)
                         if plc[0] == True:
                             main_ph.start_ph()
-
                         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                         else:
                             heater.start_heater(temperature, plc, relay_8)
 
@@ -259,7 +258,7 @@ try:
                 besgo.start_besgo(current_time, relay_8, plc, setting_mode, setting_selection)
                 if relay_8[4] == True:
                         if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                                main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                         else:
                             heater.start_heater(temperature, plc, relay_8)
                 if status_bes == "False":
@@ -274,7 +273,7 @@ try:
                         main_ph.start_ph()
                         
                     if int(setting_selection[0]['heat_pump_heater']) == 1 or int(setting_selection[0]['heat_pump_cooling']) == 1 or  int(setting_selection[0]['heat_pump_all']) == 1:
-                                main_heatpump.start_heatpump(temperature, plc, relay_8, heatpump)
+                        main_pump.start_heatpump(temperature, plc, relay_8, heatpump)
                     else:
                         heater.start_heater(temperature, plc, relay_8)
                     
