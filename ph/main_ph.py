@@ -112,7 +112,7 @@ class Main_PH():
             self.process_orp(ph_json, relay8)
         else:
             if relay8[6] == True:
-                modbus_orp.start_orp()
+                modbus_orp.stop_orp()
         if data_apf == "1":
             self.process_apf(ph_json, relay8)
         else:
