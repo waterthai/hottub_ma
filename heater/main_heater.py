@@ -40,8 +40,8 @@ class Main_Heater():
                     # minus = float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff'])
                     if  float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff']) >=  float(temperature):
                         print("เปิดปั้ม")
-                        # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                        # read_status_auto.write("True")
+                        read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                        read_status_auto.write("True")
                         # read_counter_open = open('/home/pi/hottub_ma/txt_file/counter_open_heater.txt','r')
                         # counter_open_heater = int(read_counter_open.read())
                         # if counter_open_heater < 60 :
@@ -55,8 +55,8 @@ class Main_Heater():
                             mod_heatpump.start_chauffage2()
                     elif float(temperature) >= float(data_setting[0]['setting_temperature']): 
                         print("ปิดปั้ม")
-                        # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                        # read_status_auto.write("False")
+                        read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                        read_status_auto.write("False")
                         if plc[2] == True:
                             mod_heatpump.stop_chauffage()
                             time.sleep(0.5)
@@ -73,27 +73,27 @@ class Main_Heater():
                     print(set_temp)
                     print(temp_div)
                     print(read)
-                    # if float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff']) >  float(temperature):
-                    #     read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                    #     read_status_auto.write("True")
-                    #     if plc[0] == False:
-                    #         plc_mod.start_filtration()
-                    # else :
-                    #     print("ปิดปั้ม")
-                    #     read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                    #     read_status_auto.write("False")
-                    if plc[2] == True:
-                        mod_heatpump.stop_chauffage()
-                        time.sleep(0.5)
-                        mod_heatpump.stop_chauffage2()
-                        time.sleep(0.5)
-                        self.clear_heater_open_count()
+                    if float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff']) >  float(temperature):
+                        read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                        read_status_auto.write("True")
+                        if plc[0] == False:
+                            plc_mod.start_filtration()
+                    else :
+                        print("ปิดปั้ม")
+                        read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                        read_status_auto.write("False")
+                        if plc[2] == True:
+                            mod_heatpump.stop_chauffage()
+                            time.sleep(0.5)
+                            mod_heatpump.stop_chauffage2()
+                            time.sleep(0.5)
+                            self.clear_heater_open_count()
                         # if plc[2] == False:
                         #     if plc[3] == True:
                         #         mod_heatpump.stop_chauffage2()
                 else:
-                    # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                    # read_status_auto.write("False")
+                    read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                    read_status_auto.write("False")
                     if plc[2] == True:
                         mod_heatpump.stop_chauffage()
                         time.sleep(0.5)
@@ -104,8 +104,8 @@ class Main_Heater():
                     #     if plc[3] == True:
                     #         mod_heatpump.stop_chauffage2()
             else:
-                # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                # read_status_auto.write("False")
+                read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                read_status_auto.write("False")
                 if plc[2] == True:
                     mod_heatpump.stop_chauffage()
                     time.sleep(0.5)
@@ -117,8 +117,8 @@ class Main_Heater():
                 #         mod_heatpump.stop_chauffage2()
 
         else:
-            # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-            # read_status_auto.write("False")
+            read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+            read_status_auto.write("False")
             if plc[2] == True:
                 mod_heatpump.stop_chauffage()
                 time.sleep(0.5)

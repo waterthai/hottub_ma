@@ -60,7 +60,7 @@ try:
 
         response_selection =  urlopen(url_selection)
         setting_selection = json.loads(response_selection.read())
-        print(setting_selection)
+
 
         read_pressure =  modbus_read.read_pressure(data_setting)
         print("pressure"+str(read_pressure))
