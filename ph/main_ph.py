@@ -126,11 +126,11 @@ class Main_PH():
      
     
         if float(read_ph) >= float(ph_json[0]['ph_set']):
-            print("------------counter ph start---------------"+str(modbus_ph.read_ph_counter()))
+            # print("------------counter ph start---------------"+str(modbus_ph.read_ph_counter()))
             if int(modbus_ph.read_ph_counter()) == 0:
-                print("------------counter ph start---------------"+str(relay8[5]))
+                # print("------------counter ph start---------------"+str(relay8[5]))
                 if relay8[5] == False:
-                    print("------------counter ph start---------+++++++++++++++++++------")
+                    # print("------------counter ph start---------+++++++++++++++++++------")
                     modbus_ph.start_ph()
                 modbus_ph.write_ph_counter()
             else :
