@@ -45,7 +45,7 @@ class Main_Heater():
                             mod_heatpump.start_chauffage()
                         if plc[2] == True:
                             mod_heatpump.start_chauffage2()
-                    else:
+                    elif read >= set_temp:
                         print("close start")
                     print("xxxxxxxxxxx")
                     # minus = float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff'])
