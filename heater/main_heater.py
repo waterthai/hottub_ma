@@ -41,8 +41,8 @@ class Main_Heater():
                     # minus = float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff'])
                     if  (set_temp - temp_div) >=  read:
                         print("เปิดปั้ม")
-                        read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
-                        read_status_auto.write("True")
+                        # read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
+                        # read_status_auto.write("True")
                         # read_counter_open = open('/home/pi/hottub_ma/txt_file/counter_open_heater.txt','r')
                         # counter_open_heater = int(read_counter_open.read())
                         # if counter_open_heater < 60 :
@@ -50,10 +50,10 @@ class Main_Heater():
                         #       write_counter_open = open('/home/pi/hottub_ma/txt_file/counter_open_heater.txt','w')
                         #       write_counter_open.write(str(sum_counter_heater))
                         # else:
-                        if plc[2] == False:
-                            mod_heatpump.start_chauffage()
-                        if plc[2] == True:
-                            mod_heatpump.start_chauffage2()
+                        # if plc[2] == False:
+                        #     mod_heatpump.start_chauffage()
+                        # if plc[2] == True:
+                        #     mod_heatpump.start_chauffage2()
                     elif float(temperature) >= float(data_setting[0]['setting_temperature']): 
                         print("ปิดปั้ม")
                         read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
