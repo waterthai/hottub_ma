@@ -46,12 +46,12 @@ class Main_Heater():
                         if plc[2] == True:
                             mod_heatpump.start_chauffage2()
                     elif read >= set_temp:
-                        with open('/home/pi/txt_file/status_working_heater.txt','w') as read_status_auto:
+                        with open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w') as read_status_auto:
                             read_status_auto.write("False")
                         if plc[2] == True:
                             mod_heatpump.stop_chauffage()
-                            # time.sleep(0.5)
-                            # mod_heatpump.stop_chauffage2()
+                            time.sleep(0.5)
+                            mod_heatpump.stop_chauffage2()
         
                     print("xxxxxxxxxxx")
                     # minus = float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff'])
