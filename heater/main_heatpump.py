@@ -81,7 +81,7 @@ class Main_HeatPump():
 
                         # minus = float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff'])
                         if  float(data_setting[0]['setting_temperature']) - float(data_setting[0]['setting_temp_deff']) >=  float(temperature):
-                            print("เปิดปั้ม")
+                            print("เปิดปั้ม heatpump")
                             read_status_auto = open('/home/pi/hottub_ma/txt_file/status_working_heater.txt','w')
                             read_status_auto.write("True")
                             # read_counter_open = open('/home/pi/hottub_ma/txt_file/counter_open_heater.txt','r')
