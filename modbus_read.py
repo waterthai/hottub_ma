@@ -208,3 +208,40 @@ class Modbus_read():
         except:
             pass
 
+    def read_all_plc_in(self):
+        try:
+            client1 = ModbusSerialClient(
+                    method='rtu',
+                    port=path_url.modbus_port,
+                    baudrate=9600,
+                    timeout=3,
+                    parity='N',
+                    stopbits=1,
+                    bytesize=8
+                )
+            client1.connect()
+            data = client1.read_discrete_inputs(0, 16, path_url.plc_address)
+           
+            return data.bits
+        except:
+            pass
+        
+    def read_all_plc_out(self):
+        try:
+            client1 = ModbusSerialClient(
+                    method='rtu',
+                    port=path_url.modbus_port,
+                    baudrate=9600,
+                    timeout=3,
+                    parity='N',
+                    stopbits=1,
+                    bytesize=8
+                )
+            client1.connect()
+            data = client1.read_coils(0, 16, path_url.plc_address)
+           
+            return data.bits
+        except:
+            pass
+
+

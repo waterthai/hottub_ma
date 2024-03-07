@@ -25,6 +25,7 @@ from path_url import Path_url
 sys.path.append('/home/pi/hottub_ma/heater/')
 from main_heater import Main_Heater
 from main_heatpump import Main_HeatPump
+from modbus_heater import Modbus_heatpump
 
 
 modbus_read = Modbus_read()
@@ -36,6 +37,7 @@ heater  = Main_Heater()
 main_pump = Main_HeatPump()
 plc_mod = Modbus()
 write_file = Write_file()
+modbus_heater = Modbus_heatpump()
 
 counter_pressure = 0
 url_setting = path_url.url_setting
@@ -77,6 +79,8 @@ try:
         plc_in = modbus_read.read_status_plc_in()
         print("plc in"+str(plc_in))
         
+        plc_all_in = modbus_read.read_all_plc_in()
+        plc_all_out = modbus_read.read_all_plc_out()
         # #read temperature
         temperature = modbus_read.read_temperature(data_setting)
         print("temp"+str(temperature))
@@ -160,8 +164,12 @@ try:
                         if plc[0] == False:
                             main_relay = Main_relay(relay_8, plc[0])
                             main_relay.start_relay()
+                            if plc_all_out[2] == True:
+                                modbus_heater.stop_chauffage()
+                            if plc_all_out[3] == True:
+                                modbus_heater.stop_chauffage2()
 
-                        
+
                     time.sleep(0.5)
                     volt.start_volt(setting_selection)
                         
@@ -202,6 +210,11 @@ try:
                 if plc[0] == False:
                     main_relay = Main_relay(relay_8, plc[0])
                     main_relay.start_relay()
+                    if plc_all_out[2] == True:
+                        modbus_heater.stop_chauffage()
+                    if plc_all_out[3] == True:
+                        modbus_heater.stop_chauffage2()
+                        
                 time.sleep(0.5)
         else:
             print("PLC NOT FALSE"+str(relay_8[4]))
@@ -244,6 +257,10 @@ try:
                     if plc[0] == False:
                         main_relay = Main_relay(relay_8, plc[0])
                         main_relay.start_relay()
+                        if plc_all_out[2] == True:
+                            modbus_heater.stop_chauffage()
+                        if plc_all_out[3] == True:
+                            modbus_heater.stop_chauffage2()
 
                     
                 time.sleep(0.5)
